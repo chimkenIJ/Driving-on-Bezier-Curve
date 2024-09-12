@@ -18,6 +18,9 @@ public class DriveCurve extends SequentialCommandGroup {
       double dist =
           (curve.get(i)[0] - currX) * (curve.get(i)[0] - currX)
               + (curve.get(i)[1] - currY) * (curve.get(i)[1] - currY);
+      System.out.println(curve.get(i)[0] + ", " + curve.get(i)[1]);
+      System.out.println(currAng);
+      System.out.println(dist);
 
       addCommands(
           new TurnDegrees(1, currAng, drivetrain), (new DriveDistance(1, dist, drivetrain)));

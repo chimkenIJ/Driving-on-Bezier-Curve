@@ -31,17 +31,14 @@ public class DriveDistance extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    // m_xrpDrivetrain.arcadeDrive(0, 0);
-    // m_xrpDrivetrain.resetEncoders();
+    m_xrpDrivetrain.arcadeDrive(0, 0);
+    m_xrpDrivetrain.resetEncoders();
+    System.out.println("Drive " + m_distance + " inches");
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (first) {
-      m_xrpDrivetrain.resetEncoders();
-    }
-    first = false;
     m_xrpDrivetrain.arcadeDrive(m_speed, 0);
   }
 
@@ -55,9 +52,7 @@ public class DriveDistance extends Command {
   @Override
   public boolean isFinished() {
     // Compare distance travelled from start to desired distance
-    if (Math.abs(m_xrpDrivetrain.getAverageDistanceInch()) >= m_distance) {
-      System.out.println("finished driving " + m_distance + " inches");
-    }
+    if (Math.abs(m_xrpDrivetrain.getAverageDistanceInch()) >= m_distance) {}
     return false;
   }
 }

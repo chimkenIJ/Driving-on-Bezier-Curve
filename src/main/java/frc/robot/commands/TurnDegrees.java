@@ -32,17 +32,15 @@ public class TurnDegrees extends Command {
   @Override
   public void initialize() {
     // Set motors to stop, read encoder values for starting point
-    //    m_drive.arcadeDrive(0, 0);
-    // m_drive.resetEncoders();
+    System.out.println("Turn " + m_degrees + " degrees");
+    m_drive.arcadeDrive(0, 0);
+    m_drive.resetEncoders();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (first) {
-      m_drive.resetEncoders();
-    }
-    first = false;
+
     m_drive.arcadeDrive(0, m_speed);
   }
 
@@ -63,7 +61,6 @@ public class TurnDegrees extends Command {
     double inchPerDegree = Math.PI * 6.102 / 360;
     // Compare distance travelled from start to distance based on degree turn
     if (getAverageTurningDistance() >= (inchPerDegree * m_degrees)) {
-      System.out.println("finished turning " + m_degrees + " degrees");
       return true;
     }
     return false;

@@ -44,9 +44,9 @@ public class BezierCurve extends Command {
       double dist =
           (curve.get(i)[0] - currX) * (curve.get(i)[0] - currX)
               + (curve.get(i)[1] - currY) * (curve.get(i)[1] - currY);
-      /*System.out.println(curve.get(i)[0] + ", " + curve.get(i)[1]);
-      System.out.println(currAng);
-      System.out.println(dist);*/
+      // System.out.println(curve.get(i)[0] + ", " + curve.get(i)[1]);
+      // System.out.println(currAng);
+      // System.out.println(dist);
 
       // CommandScheduler.getInstance().schedule(new TurnDegrees(1, currAng, m_xrpDrivetrain));
       // CommandScheduler.getInstance().schedule(new WaitCommand(0.2));
