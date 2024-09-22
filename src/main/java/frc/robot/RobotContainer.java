@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.DriveCurve;
 import frc.robot.commands.DriveDistance;
-import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.TurnDegrees;
 import frc.robot.subsystems.XRPArm;
 import frc.robot.subsystems.XRPDrivetrain;
@@ -36,7 +35,6 @@ public class RobotContainer {
      Arrays.asList(new double[] {0, 0}, new double[] {-1, 1}, new double[] {-2, 0});
  private final BezierCurveCalc curves = new BezierCurveCalc(points);
  boolean ans = false;
- private final ExampleCommand m_autoCommand = new ExampleCommand(m_xrpDrivetrain);
 
 
  /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -47,35 +45,6 @@ public class RobotContainer {
            () -> m_xrpDrivetrain.arcadeDrive(-m_xbox.getLeftY(), -m_xbox.getLeftX()),
            m_xrpDrivetrain));
    configureButtonBindings();
-
-
-   /*List<double[]> curve = curves.calcCurve();
-   double currX = 0;
-   double currY = 0;
-   double currAng = 0;
-   for (int i = 0; i < curve.size(); i++) {
-     double ang = (Math.tan((curve.get(i)[1]-currY)/(curve.get(i)[0]-currX)));
-     if (Double.isNaN(ang)) {
-       ang = 0;
-     }
-     currAng= currAng + ang;
-     double dist = (curve.get(i)[0]-currX)*(curve.get(i)[0]-currX) + (curve.get(i)[1]-currY)*(curve.get(i)[1]-currY);
-     //System.out.println(curve.get(i)[0] + ", " + curve.get(i)[1]);
-     //System.out.println(currAng);
-     //System.out.println(dist);
-     //CommandScheduler.getInstance().schedule(new TurnDegrees(1, currAng, m_xrpDrivetrain));
-     //CommandScheduler.getInstance().schedule(new WaitCommand(0.2));
-     //CommandScheduler.getInstance().schedule(new DriveDistance(1,(curve.get(i)[0]-currX)*(curve.get(i)[0]-currX) + (curve.get(i)[1]-currY)*(curve.get(i)[1]-currY),m_xrpDrivetrain));
-     //CommandScheduler.getInstance().schedule(new WaitCommand(0.2));
-
-
-     //new TurnDegrees(1, currAng, m_xrpDrivetrain);
-     //new DriveDistance(1, dist, m_xrpDrivetrain);
-     CommandScheduler.getInstance().schedule(new TurnDegrees(1, currAng, m_xrpDrivetrain),(new DriveDistance(1,dist,m_xrpDrivetrain)));
-     currX = curve.get(i)[0];
-     currY = curve.get(i)[1];
-   }
-   System.out.println("done ^-^");*/
 
 
  }
@@ -120,7 +89,7 @@ public class RobotContainer {
   */
  public Command getAutonomousCommand() {
    // An ExampleCommand will run in autonomous
-   return m_autoCommand;
+   return null;
  }
 }
 
